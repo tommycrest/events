@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  datefrom: MyString
+  dateto: MyString
+  description_ukr: MyString
+  description_ru: MyString
+  description_en: MyString
+  hourfrom: MyString
+  hourto: MyString
+  image: MyString
+  location: MyString
+  eventname_ua: MyString
+  eventname_ru: MyString
+  eventname_en: MyString
+
+two:
+  datefrom: MyString
+  dateto: MyString
+  description_ukr: MyString
+  description_ru: MyString
+  description_en: MyString
+  hourfrom: MyString
+  hourto: MyString
+  image: MyString
+  location: MyString
+  eventname_ua: MyString
+  eventname_ru: MyString
+  eventname_en: MyString

@@ -1,0 +1,164 @@
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (112.4ms)[0m  [1m[35mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "datefrom" varchar, "dateto" varchar, "description_ukr" varchar, "description_ru" varchar, "description_en" varchar, "hourfrom" varchar, "hourto" varchar, "image" varchar, "location" varchar, "eventname_ua" varchar, "eventname_ru" varchar, "eventname_en" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "newsletters"[0m
+  [1m[35m (97.7ms)[0m  [1m[35mCREATE TABLE "newsletters" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email_address" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (110.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (88.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180501150548)[0m
+  [1m[35m (65.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180422162100);
+
+[0m
+  [1m[35m (115.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2018-05-02 21:47:49.994731"], ["updated_at", "2018-05-02 21:47:49.994731"]]
+  [1m[35m (90.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "events"[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO "events" ("datefrom", "dateto", "description_ukr", "description_ru", "description_en", "hourfrom", "hourto", "image", "location", "eventname_ua", "eventname_ru", "eventname_en", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2018-05-02 21:47:50.287217', '2018-05-02 21:47:50.287217', 980190962)[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "events" ("datefrom", "dateto", "description_ukr", "description_ru", "description_en", "hourfrom", "hourto", "image", "location", "eventname_ua", "eventname_ru", "eventname_en", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2018-05-02 21:47:50.287217', '2018-05-02 21:47:50.287217', 298486374)[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "newsletters"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "newsletters" ("email_address", "created_at", "updated_at", "id") VALUES ('MyString', '2018-05-02 21:47:50.296483', '2018-05-02 21:47:50.296483', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "newsletters" ("email_address", "created_at", "updated_at", "id") VALUES ('MyString', '2018-05-02 21:47:50.296483', '2018-05-02 21:47:50.296483', 298486374)[0m
+  [1m[35m (74.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+NewslettersControllerTest: test_should_destroy_newsletter
+---------------------------------------------------------
+  [1m[36mNewsletter Load (0.5ms)[0m  [1m[34mSELECT  "newsletters".* FROM "newsletters" WHERE "newsletters"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "newsletters"[0m
+Started DELETE "/newsletters/980190962" for 127.0.0.1 at 2018-05-02 23:47:50 +0200
+Processing by NewslettersController#destroy as JSON
+  Parameters: {"_json"=>nil, "id"=>"980190962", "newsletter"=>{}}
+  [1m[36mNewsletter Load (0.3ms)[0m  [1m[34mSELECT  "newsletters".* FROM "newsletters" WHERE "newsletters"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "newsletters" WHERE "newsletters"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 204 No Content in 42ms (ActiveRecord: 1.3ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "newsletters"[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+NewslettersControllerTest: test_should_get_index
+------------------------------------------------
+  [1m[36mNewsletter Load (0.3ms)[0m  [1m[34mSELECT  "newsletters".* FROM "newsletters" WHERE "newsletters"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/newsletters?null" for 127.0.0.1 at 2018-05-02 23:47:51 +0200
+Processing by NewslettersController#index as JSON
+  Parameters: {"null"=>nil, "newsletter"=>{}}
+  [1m[36mNewsletter Load (0.3ms)[0m  [1m[34mSELECT "newsletters".* FROM "newsletters"[0m
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------
+NewslettersControllerTest: test_should_show_newsletter
+------------------------------------------------------
+  [1m[36mNewsletter Load (0.3ms)[0m  [1m[34mSELECT  "newsletters".* FROM "newsletters" WHERE "newsletters"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/newsletters/980190962?null" for 127.0.0.1 at 2018-05-02 23:47:51 +0200
+Processing by NewslettersController#show as JSON
+  Parameters: {"null"=>nil, "id"=>"980190962", "newsletter"=>{}}
+  [1m[36mNewsletter Load (0.2ms)[0m  [1m[34mSELECT  "newsletters".* FROM "newsletters" WHERE "newsletters"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+NewslettersControllerTest: test_should_update_newsletter
+--------------------------------------------------------
+  [1m[36mNewsletter Load (0.3ms)[0m  [1m[34mSELECT  "newsletters".* FROM "newsletters" WHERE "newsletters"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/newsletters/980190962" for 127.0.0.1 at 2018-05-02 23:47:51 +0200
+Processing by NewslettersController#update as JSON
+  Parameters: {"newsletter"=>{"email_address"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mNewsletter Load (0.2ms)[0m  [1m[34mSELECT  "newsletters".* FROM "newsletters" WHERE "newsletters"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+NewslettersControllerTest: test_should_create_newsletter
+--------------------------------------------------------
+  [1m[36mNewsletter Load (0.2ms)[0m  [1m[34mSELECT  "newsletters".* FROM "newsletters" WHERE "newsletters"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "newsletters"[0m
+Started POST "/newsletters" for 127.0.0.1 at 2018-05-02 23:47:51 +0200
+Processing by NewslettersController#create as JSON
+  Parameters: {"newsletter"=>{"email_address"=>"MyString"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "newsletters" ("email_address", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["email_address", "MyString"], ["created_at", "2018-05-02 21:47:51.130018"], ["updated_at", "2018-05-02 21:47:51.130018"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 10ms (Views: 3.3ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "newsletters"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+EventsControllerTest: test_should_show_event
+--------------------------------------------
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/events/980190962?null" for 127.0.0.1 at 2018-05-02 23:47:51 +0200
+Processing by EventsController#show as JSON
+  Parameters: {"null"=>nil, "id"=>"980190962", "event"=>{}}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+EventsControllerTest: test_should_update_event
+----------------------------------------------
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/events/980190962" for 127.0.0.1 at 2018-05-02 23:47:51 +0200
+Processing by EventsController#update as JSON
+  Parameters: {"event"=>{"datefrom"=>"MyString", "dateto"=>"MyString", "description_en"=>"MyString", "description_ru"=>"MyString", "description_ukr"=>"MyString", "eventname_en"=>"MyString", "eventname_ru"=>"MyString", "eventname_ua"=>"MyString", "hourfrom"=>"MyString", "hourto"=>"MyString", "image"=>"MyString", "location"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------
+EventsControllerTest: test_should_get_index
+-------------------------------------------
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/events?null" for 127.0.0.1 at 2018-05-02 23:47:51 +0200
+Processing by EventsController#index as JSON
+  Parameters: {"null"=>nil, "event"=>{}}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+EventsControllerTest: test_should_create_event
+----------------------------------------------
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+Started POST "/events" for 127.0.0.1 at 2018-05-02 23:47:51 +0200
+Processing by EventsController#create as JSON
+  Parameters: {"event"=>{"datefrom"=>"MyString", "dateto"=>"MyString", "description_en"=>"MyString", "description_ru"=>"MyString", "description_ukr"=>"MyString", "eventname_en"=>"MyString", "eventname_ru"=>"MyString", "eventname_ua"=>"MyString", "hourfrom"=>"MyString", "hourto"=>"MyString", "image"=>"MyString", "location"=>"MyString"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "events" ("datefrom", "dateto", "description_ukr", "description_ru", "description_en", "hourfrom", "hourto", "image", "location", "eventname_ua", "eventname_ru", "eventname_en", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["datefrom", "MyString"], ["dateto", "MyString"], ["description_ukr", "MyString"], ["description_ru", "MyString"], ["description_en", "MyString"], ["hourfrom", "MyString"], ["hourto", "MyString"], ["image", "MyString"], ["location", "MyString"], ["eventname_ua", "MyString"], ["eventname_ru", "MyString"], ["eventname_en", "MyString"], ["created_at", "2018-05-02 21:47:51.256387"], ["updated_at", "2018-05-02 21:47:51.256387"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 9ms (Views: 2.6ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+EventsControllerTest: test_should_destroy_event
+-----------------------------------------------
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+Started DELETE "/events/980190962" for 127.0.0.1 at 2018-05-02 23:47:51 +0200
+Processing by EventsController#destroy as JSON
+  Parameters: {"_json"=>nil, "id"=>"980190962", "event"=>{}}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 204 No Content in 4ms (ActiveRecord: 1.1ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
